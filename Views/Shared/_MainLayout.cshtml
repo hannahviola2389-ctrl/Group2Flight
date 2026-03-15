@@ -1,0 +1,34 @@
+@{
+    Layout = "_Layout";
+    var controller = ViewContext.RouteData.Values["controller"]?.ToString();
+    var action = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+<nav>
+    <a asp-controller="Home" asp-action="Index"
+       class="@(controller == "Home" && action == "Index" ? "active" : "")">
+       Dashboard
+    </a> |
+
+    <a asp-controller="Search" asp-action="Index"
+       class="@(controller == "Search" ? "active" : "")">
+       Search
+    </a> |
+
+    <a asp-controller="Home" asp-action="Privacy"
+       class="@(controller == "Home" && action == "Privacy" ? "active" : "")">
+       Privacy
+    </a> |
+
+    <a asp-area="Admin" asp-controller="Users" asp-action="Index">
+       Admin
+    </a> |
+
+    <a asp-area="Airlines" asp-controller="Flights" asp-action="Index">
+       Airline
+    </a>
+</nav>
+
+<hr />
+
+@RenderBody()

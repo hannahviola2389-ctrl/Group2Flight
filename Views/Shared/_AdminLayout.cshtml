@@ -1,0 +1,24 @@
+@{
+    Layout = "_Layout";
+    var action = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+<nav>
+    <a asp-area="Admin" asp-controller="Users" asp-action="Index"
+       class="@(action == "Index" ? "active" : "")">
+       Dashboard
+    </a> |
+
+    <a asp-area="Admin" asp-controller="Users" asp-action="Manage"
+       class="@(action == "Manage" ? "active" : "")">
+       Manage
+    </a> |
+
+    <a asp-area="" asp-controller="Home" asp-action="Index">
+       View Site
+    </a>
+</nav>
+
+<hr />
+
+@RenderBody()
